@@ -10,8 +10,8 @@ def process_markdown_files(directory):
                 lines = file.readlines()
 
             if lines:
-                # 处理第一行，确保 # 后有一个空格
-                lines[0] = re.sub(r'^# *\d+[｜|]', '# ', lines[0])
+                # 处理第一行，移除数字前缀并确保 # 后有一个空格
+                lines[0] = re.sub(r'^# *\d+[-|｜]?', '# ', lines[0])
                 # 如果 # 后没有空格，添加一个
                 if lines[0].startswith('#') and not lines[0].startswith('# '):
                     lines[0] = '# ' + lines[0][1:].lstrip()
@@ -19,7 +19,7 @@ def process_markdown_files(directory):
                 lines.insert(1, '\n')
 
             # 更新文件名（去掉数字和分隔符）
-            new_filename = re.sub(r'^\d+[｜|]', '', filename)
+            new_filename = re.sub(r'^\d+[-|｜]?', '', filename)
             new_filepath = os.path.join(directory, new_filename)
 
             # 写入修改后的内容
@@ -37,7 +37,7 @@ def process_markdown_files(directory):
             summary_content = file.read()
 
         # 更新 SUMMARY.md 中的链接
-        summary_content = re.sub(r'\(./\d+[｜|](.*?).md\)', r'(./\1.md)', summary_content)
+        summary_content = re.sub(r'\(./\d+[-|｜]?(.*?).md\)', r'(./\1.md)', summary_content)
 
         # 写入修改后的 SUMMARY.md
         with open(summary_path, 'w', encoding='utf-8') as file:
