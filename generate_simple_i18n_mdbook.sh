@@ -8,7 +8,7 @@ source $HOME/.cargo/env
 
 # 安装 mdbook 及相关工具
 cargo install mdbook
-cargo install --locked mdbook-i18n
+cargo install mdbook-i18n
 
 
 # 构建 mdbook
