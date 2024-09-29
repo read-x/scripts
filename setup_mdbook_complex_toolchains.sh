@@ -1,17 +1,5 @@
 #!/bin/bash
-pandoc_latest_version=$(curl -s https://api.github.com/repos/jgm/pandoc/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
 
-# 构建下载URL
-pandoc_download_url="https://github.com/jgm/pandoc/releases/download/${pandoc_latest_version}/pandoc-${pandoc_latest_version}-linux-amd64.tar.gz"
-
-# 下载安装包
-curl -L -o pandoc.tar.gz $pandoc_download_url
-
-# 解压
-tar xvzf pandoc.tar.gz
-
-# 移动二进制文件到/usr/local/bin
-sudo mv pandoc-*/bin/pandoc /usr/local/bin
 # 安装 Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
