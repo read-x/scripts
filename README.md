@@ -11,5 +11,5 @@ useful scripts to make mdbook
   ```
   output set `book`
   
-  env `MDBOOK_VERSION` to `0.4.48`
+  env `MDBOOK_VERSION` to `0.4.52`
   
