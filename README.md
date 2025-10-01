@@ -9,6 +9,7 @@ useful scripts to make mdbook
   ```bash
   curl -L https://github.com/rust-lang/mdBook/releases/download/v$MDBOOK_VERSION/mdbook-v$MDBOOK_VERSION-x86_64-unknown-linux-gnu.tar.gz | tar xvz && ./mdbook build
   ```
-  output set `book
+  output set `book`
+  
   env `MDBOOK_VERSION` to `0.4.48`
   
